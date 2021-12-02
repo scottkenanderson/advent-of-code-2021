@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
-filename = ARGV[0]
+lines = read_file.map!(&:to_i)
 
-exit(1) unless filename
+next_line = lines.shift
+
+puts "#{next_line} (N/A)"
 
 counter = 0
-
-lines = File.readlines(filename).map!(&:to_i)
-next_line = lines.shift
-puts "#{next_line} (N/A)"
 
 lines.each do |line|
   if line > next_line

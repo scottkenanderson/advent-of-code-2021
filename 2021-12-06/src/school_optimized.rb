@@ -10,9 +10,9 @@ class SchoolOptimized
   end
 
   def pass_day
-    new_fish = @fishes.shift
-    @fishes << new_fish
-    @fishes[@cycle_index] += new_fish
+    new_parents = @fishes.shift
+    @fishes << new_parents
+    @fishes[@cycle_index] += new_parents
   end
 
   def num_fish

@@ -21,8 +21,4 @@ class Lanternfish
   def to_s
     @internal_timer.to_s
   end
-
-  def <=>(other)
-    @internal_timer <=> other.internal_timer
-  end
 end

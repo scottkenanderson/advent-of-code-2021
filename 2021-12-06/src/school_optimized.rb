@@ -1,6 +1,6 @@
 class SchoolOptimized
   def initialize
-    @cycle_index = 7
+    @cycle_index = 6
     @first_cycle_index = @cycle_index + 2
     @fishes = (0..@first_cycle_index).map { |_| 0 }
   end

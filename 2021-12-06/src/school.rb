@@ -10,9 +10,9 @@ class School
   end
 
   def pass_day
-    new_fish = @fishes.select(&:create_lanternfish?).map { |_| Lanternfish.new }
+    new_parents = @fishes.select(&:create_lanternfish?).map { |_| Lanternfish.new }
     @fishes.each(&:pass_day)
-    @fishes += new_fish
+    @fishes += new_parents
   end
 
   def num_fish

@@ -17,8 +17,8 @@ end
 
 def parse_initial_state(input)
   school = SchoolOptimized.new
-  input[0].split(",").map do |timer|
-    school.add_fish(Lanternfish.new(timer.to_i))
+  input[0].split(",").map(&:to_i).each do |timer|
+    school.add_fish(Lanternfish.new(timer))
   end
   school
 end

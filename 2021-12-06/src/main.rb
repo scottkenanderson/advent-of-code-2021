@@ -4,12 +4,14 @@ require_relative("./lanternfish")
 require_relative("./school_optimized")
 require_relative("../../lib/read_file")
 
-def part_1(school, days)
+def part1(school, days)
   puts "Initial state:\t\t#{school}"
+  output = []
   (1..days).each do |i|
     school.pass_day
-    puts "After\t#{i}\tdays:\t#{school}"
+    output << "After\t#{i}\tdays:\t#{school}"
   end
+  puts output.join("\n")
   puts "Total fish:\t#{school.num_fish}"
 end
 
@@ -23,6 +25,6 @@ end
 
 days = ARGV[1].to_i || fail("num days")
 
-input_part_1 = read_file
-school = parse_initial_state(input_part_1)
-part_1(school, days)
+input_part1 = read_file
+school = parse_initial_state(input_part1)
+part1(school, days)

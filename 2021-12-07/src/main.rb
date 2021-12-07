@@ -17,9 +17,14 @@ def part2(swarm)
 end
 
 def parse_initial_state(input)
-  swarm = Swarm.new
-  input[0].split(",").map(&:strip).map(&:to_i).each { |position| swarm.add_submarine(position) }
-  swarm
+  Swarm.new.tap do |s|
+    s.initial_values(
+      input[0]
+        .split(",")
+        .map(&:strip)
+        .map(&:to_i)
+    )
+  end
 end
 
 input_part1 = read_file

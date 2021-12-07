@@ -16,7 +16,7 @@ class Swarm
   end
 
   def calculate_summation_fuel(position)
-    @submarines.map { |s| (s - position).abs }.map { |i| i * (i + 1) / 2 }.sum
+    @submarines.map { |s| (s - position).abs }.map(&method(:summation)).sum
   end
 
   def min
@@ -29,5 +29,11 @@ class Swarm
 
   def to_s
     @submarines.sort!.join(",")
+  end
+
+  private
+
+  def summation(position)
+    position * (position + 1) / 2
   end
 end

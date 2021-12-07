@@ -3,6 +3,10 @@ class Swarm
     @submarines = []
   end
 
+  def initial_values(submarines)
+    @submarines = submarines
+  end
+
   def add_submarine(submarine)
     @submarines << submarine
   end

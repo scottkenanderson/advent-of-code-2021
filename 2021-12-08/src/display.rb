@@ -41,7 +41,7 @@ class Display
   end
 
   def unique_segments_count
-    @output_value.map(&:value).reject { |i| i == -1 }.count
+    @output_value.map(&:value).reject { |i| i == 'x' }.count
   end
 
   def to_values

@@ -28,17 +28,17 @@ class Digit
       # if it contains 1, then 3
       # if it's a subset of 6, then 5
       # 
-      return -1
+      return 'x'
     when 6
       # 0, 6, 9
       # if 6, and contains 4, then 9
       # if 6, and contains 7, then 0
       # else 6
-      return -1
+      return 'x'
     when 7
       return 8
     end
-    -1
+    'x'
   end
 
   def to_s

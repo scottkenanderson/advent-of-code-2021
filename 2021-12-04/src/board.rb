@@ -53,12 +53,11 @@ class Board
   def solved?
     return is_solved if is_solved
 
-    is_solved = check(@rows) || check(@rows.transpose)
-    is_solved
+    check(@rows) || check(@rows.transpose)
   end
 
   def score(num)
-    num * rows.map { |row| row.map(&:score).sum } .sum
+    num * rows.map { |row| row.map(&:score).sum }.sum
   end
 
   def to_s

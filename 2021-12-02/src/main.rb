@@ -20,8 +20,8 @@ def part_1(input)
     commands[direction] << units.to_i
   end
 
-  horizontal = calculate_position(commands['forward'], [])
-  depth = calculate_position(commands['down'], commands['up'])
+  horizontal = calculate_position(commands["forward"], [])
+  depth = calculate_position(commands["down"], commands["up"])
 
   puts "part 1: #{horizontal * depth}"
 end

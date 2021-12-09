@@ -18,7 +18,7 @@ end
 def parse_numbers(input)
   raw_numbers = input.shift
   input.shift
-  number_array = raw_numbers.split(',').map(&:to_i)
+  number_array = raw_numbers.split(",").map(&:to_i)
   NumberDrawer.new(number_array)
 end
 

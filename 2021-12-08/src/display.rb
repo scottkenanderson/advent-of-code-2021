@@ -1,5 +1,5 @@
-require 'set'
-require_relative './digit'
+require "set"
+require_relative "./digit"
 
 class Display
   attr_accessor :signal_pattern, :output_value
@@ -14,7 +14,7 @@ class Display
   end
 
   def map_values
-    @all_values.map(&:to_set).to_set.to_a.map { |x| x.to_a.join('') }.join(' ')
+    @all_values.map(&:to_set).to_set.to_a.map { |x| x.to_a.join("") }.join(" ")
     [1, 4, 7, 8].each { |i| @mapping[i] = @all_values.map.select { |v| v.value == i }.first.to_set }
     calculate6_characters
     calculate5_characters
@@ -41,7 +41,7 @@ class Display
   end
 
   def unique_segments_count
-    @output_value.map(&:value).reject { |i| i == 'x' }.count
+    @output_value.map(&:value).reject { |i| i == "x" }.count
   end
 
   def to_values

@@ -1,4 +1,4 @@
-require 'set'
+require "set"
 
 class Digit
   attr_accessor :segments
@@ -27,18 +27,18 @@ class Digit
       # 2, 3, 5
       # if it contains 1, then 3
       # if it's a subset of 6, then 5
-      # 
-      return 'x'
+      #
+      return "x"
     when 6
       # 0, 6, 9
       # if 6, and contains 4, then 9
       # if 6, and contains 7, then 0
       # else 6
-      return 'x'
+      return "x"
     when 7
       return 8
     end
-    'x'
+    "x"
   end
 
   def to_s

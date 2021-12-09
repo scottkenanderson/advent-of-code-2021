@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'set'
+
+require "set"
 require_relative "./heightmap"
 require_relative "../../lib/read_file"
 

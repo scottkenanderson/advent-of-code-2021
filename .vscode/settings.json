@@ -1,0 +1,14 @@
+{
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "standard": true
+  },
+  "emeraldwalk.runonsave": {
+    "commands": [
+        {
+            "match": "\\.rb$",
+            "cmd": "standardrb --fix ${file}"
+        }
+    ]
+}
+}

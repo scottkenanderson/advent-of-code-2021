@@ -13,4 +13,10 @@ class Point
   def ==(other)
     self.class == other.class && @x == other.x && @y == other.y
   end
+
+  alias_method :eql?, :==
+
+  def hash
+    @x.hash ^ @y.hash
+  end
 end

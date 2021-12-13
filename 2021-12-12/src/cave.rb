@@ -33,12 +33,12 @@ class Cave
     name.hash
   end
 
-  alias_method :eql?, :==
-
   def ==(other)
     self.class === other and
       other.name == @name
   end
+
+  alias_method :eql?, :==
 
   def to_s
     "\e[#{color}m#{name}\e[0m"

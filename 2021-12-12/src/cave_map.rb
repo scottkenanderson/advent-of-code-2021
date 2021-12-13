@@ -16,14 +16,14 @@ class CaveMap
       return
     end
 
-    if visited.key?(cave.name)
+    if visited.key?(cave)
       return if visited.values.select { |x| x == small_caves_count }.any?
-      visited[cave.name] += 1
+      visited[cave] += 1
     elsif cave.small?
-      visited[cave.name] = 1
+      visited[cave] = 1
     end
 
-    @connections[cave.name].each do |c|
+    @connections[cave].each do |c|
       get_path_recursive(c, visited.clone, path.clone, small_caves_count).to_s
     end
   end
@@ -38,14 +38,14 @@ class CaveMap
 
   private def make_connections connections_list
     connections_list.each do |c|
-      unless @connections.include?(c.start.name)
-        @connections[c.start.name] = []
+      unless @connections.include?(c.start)
+        @connections[c.start] = []
       end
-      unless @connections.include?(c.end.name)
-        @connections[c.end.name] = []
+      unless @connections.include?(c.end)
+        @connections[c.end] = []
       end
-      @connections[c.start.name] << c.end unless c.end.start?
-      @connections[c.end.name] << c.start unless c.end.end? || c.start.start?
+      @connections[c.start] << c.end unless c.end.start?
+      @connections[c.end] << c.start unless c.end.end? || c.start.start?
     end
   end
 end

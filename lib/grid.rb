@@ -7,6 +7,18 @@ class Grid
     point.x >= 0 && point.y >= 0 && point.x < @grid[0].length && point.y < @grid.length
   end
 
+  def x_length
+    @grid[0].length
+  end
+
+  def y_length
+    @grid.length
+  end
+
+  def retrieve(point)
+    @grid[point.y][point.x]
+  end
+
   def get_neighbours(point)
     i = point.x
     j = point.y

@@ -9,9 +9,11 @@ class Chiton
     @risk_level = risk_level < 10 ? risk_level : (risk_level % 10) + 1
     @highlighted = false
     @min_distance = nil
+    @all_distances = []
   end
 
   def set_min_distance(min_distance)
+    @all_distances << min_distance
     old_distance = @min_distance
     @min_distance = @min_distance.nil? ? min_distance : [min_distance, @min_distance].min
     old_distance == @min_distance

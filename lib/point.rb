@@ -10,6 +10,13 @@ class Point
     "#{@x},#{@y}"
   end
 
+  def +(other)
+    return nil unless instance_of?(other.class)
+    @x += other.x
+    @y += other.y
+    self
+  end
+
   def ==(other)
     self.class == other.class && @x == other.x && @y == other.y
   end

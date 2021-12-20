@@ -9,7 +9,6 @@ require_relative "./trench"
 # 17, 128
 
 def part_1(target_area)
-  puts target_area
   probe = Probe.new(target_area.max_point.x, target_area.min_point.y)
   points = [probe.point.clone]
   loop do
@@ -19,23 +18,17 @@ def part_1(target_area)
       break
     end
   end
-  puts points.join(" ")
   trench = Trench.new(target_area, points)
   (target_area.min_point.y..target_area.max_point.y).each do |y|
     (target_area.min_point.x..target_area.max_point.x).each { |x| trench.mark(Point.new(x, y), "T") }
   end
   points.each { |p| trench.mark(p, "#") }
   trench.mark(Point.new(0, 0), "S")
-  puts trench
-  puts target_area.contains(probe)
+  # puts trench
   puts "max y: #{points.map(&:y).max}"
 end
 
 def part_2(target_area)
-  puts target_area
-  # probe = Probe.new(8, 1)
-  # points = [probe.point.clone]
-  puts target_area.max_point.x
   num = 0
   within_target_area = []
   (target_area.min_point.y..target_area.min_point.y.abs).each do |y|
@@ -49,36 +42,15 @@ def part_2(target_area)
           within_target_area << probe
           break
         end
-        if probe.point.y <= target_area.min_point.y + 1 || probe.point.x >= target_area.max_point.x + 1
+        if target_area.min_point.y > probe.point.y || target_area.max_point.x < probe.point.x
           break
         end
       end
-
-      # puts [x, y, target_area.contains(probe)].join(",")
     end
   end
 
-  puts within_target_area.map(&:initial_speed).join(" ")
-  puts within_target_area.length
-  puts num
-  # loop do
-  #   probe.step
-  #   puts probe
-  #   points << probe.point.clone
-  #   if target_area.contains(probe) || probe.point.y <= target_area.min_point.y || probe.point.x >= target_area.max_point.x
-  #     break
-  #   end
-  # end
-  # puts points.join(" ")
-  # trench = Trench.new(target_area, points)
-  # (target_area.min_point.y..target_area.max_point.y).each do |y|
-  #   (target_area.min_point.x..target_area.max_point.x).each { |x| trench.mark(Point.new(x, y), "T") }
-  # end
-  # points.each { |p| trench.mark(p, "#") }
-  # trench.mark(Point.new(0, 0), "S")
-  # puts trench
-  # puts target_area.contains(probe)
-  # puts "max y: #{points.map(&:y).max}"
+  # puts within_target_area.map(&:initial_speed).join(" ")
+  puts "Number of points: #{within_target_area.length}"
 end
 
 def parse_target_area(input)

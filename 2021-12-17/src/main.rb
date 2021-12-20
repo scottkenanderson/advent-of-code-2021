@@ -38,7 +38,7 @@ def part_2(target_area)
   puts target_area.max_point.x
   num = 0
   within_target_area = []
-  (target_area.min_point.y - 1..target_area.min_point.y.abs).each do |y|
+  (target_area.min_point.y..target_area.min_point.y.abs).each do |y|
     (0..target_area.max_point.x).each do |x|
       num += 1
       probe = Probe.new(x, y)
@@ -49,7 +49,7 @@ def part_2(target_area)
           within_target_area << probe
           break
         end
-        if probe.point.y <= target_area.min_point.y || probe.point.x >= target_area.max_point.x
+        if probe.point.y <= target_area.min_point.y + 1 || probe.point.x >= target_area.max_point.x + 1
           break
         end
       end
